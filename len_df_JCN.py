@@ -1,0 +1,77 @@
+# imports
+from __future__ import division
+import csv
+import sys
+import pandas as pd
+
+
+df = pd.DataFrame.from_csv(open(sys.argv[1])).reset_index(drop=True)
+
+df = df[df.evalue < 0.05]
+df = df[(df.sequence.str.len() < 2000)]
+df = df[df.sequence.str.contains('Structure Of The Yeast Kluyveromyces Lactis Small Ribosomal Subunit In Complex With The Cricket Paralysis') == False]
+df = df[df.sequence.str.contains('granulo') == False]
+df = df[df.sequence.str.contains('Granulo') == False]
+df = df[df.sequence.str.contains('histone') == False]
+df = df[df.sequence.str.contains('Histone') == False]
+df = df[df.sequence.str.contains('Ecotropic') == False]
+df = df[df.sequence.str.contains('ecotropic') == False]
+df = df[df.sequence.str.contains('X-Ray Structure') == False]
+df = df[df.sequence.str.contains('integrase') == False]
+df = df[df.sequence.str.contains('Integrase') == False]
+df = df[df.sequence.str.contains('Mimivirus') == False]
+df = df[df.sequence.str.contains('mimivirus') == False]
+df = df[df.sequence.str.contains('Moumouvirus') == False]
+df = df[df.sequence.str.contains('moumouvirus') == False]
+df = df[df.sequence.str.contains('Megavirus') == False]
+df = df[df.sequence.str.contains('megavirus') == False]
+df = df[df.sequence.str.contains('ectopic virus integration') == False]
+df = df[df.sequence.str.contains('gag') == False]
+df = df[df.sequence.str.contains('Gag') == False]
+df = df[df.sequence.str.contains('gag-pol') == False]
+df = df[df.sequence.str.contains('Gag-pol') == False]
+df = df[df.sequence.str.contains('pol ') == False]
+df = df[df.sequence.str.contains('Pol ') == False]
+df = df[df.sequence.str.contains('Zinc') == False]
+df = df[df.sequence.str.contains('zinc') == False]
+df = df[df.sequence.str.contains('LINE reverse transcriptase') == False]
+df = df[df.sequence.str.contains('PREDICTED') == False]
+df = df[df.sequence.str.contains('Human') == False]
+df = df[df.sequence.str.contains('human') == False]
+df = df[df.sequence.str.contains('proto-oncogene') == False]
+df = df[df.sequence.str.contains('leukemia virus') == False]
+df = df[df.sequence.str.contains('Pandoravirus') == False]
+df = df[df.sequence.str.contains('pandoravirus') == False]
+df = df[df.sequence.str.contains('Enzymatic polyprotein') == False]
+df = df[df.sequence.str.contains('Crystal Structure') == False]
+df = df[df.sequence.str.contains('Mus musculus') == False]
+df = df[df.sequence.str.contains('Indivirus') == False]
+df = df[df.sequence.str.contains('indivirus') == False]
+df = df[df.sequence.str.contains('mamavirus') == False]
+df = df[df.sequence.str.contains('Mamavirus') == False]
+df = df[df.sequence.str.contains('Scheffersomyces stipitis CBS 6054') == False]
+df = df[df.sequence.str.contains('Homo sapiens') == False]
+df = df[df.sequence.str.contains('Lymphocystis disease virus') == False]
+df = df[df.sequence.str.contains('ankyrin') == False]
+df = df[df.sequence.str.contains('Ancylostoma duodenale') == False]
+df = df[df.sequence.str.contains('Euroglyphus maynei') == False]
+df = df[df.sequence.str.contains('Cricket Paralysis Virus') == False]
+df = df[df.sequence.str.contains('Hokovirus') == False]
+df = df[df.sequence.str.contains('Gallus gallus') == False]
+df = df[df.sequence.str.contains('hokovirus') == False]
+df = df[df.sequence.str.contains('Ball python nidovirus 1') == False]
+df = df[df.sequence.str.contains('hypertrophy') == False]
+df = df[df.sequence.str.contains('YP_007714631.1') == False]
+df = df[df.sequence.str.contains('Mollivirus') == False]
+df = df[df.sequence.str.contains('Kaumoebavirus') == False]
+df = df[df.sequence.str.contains('Pacmanvirus') == False]
+df = df[df.sequence.str.contains('HSP70') == False]
+df = df[df.sequence.str.contains('heat*shock') == False]
+df = df[df.sequence.str.contains('HSP*70') == False]
+
+# df = df[df.sequence.str.contains('') == False]
+# df = df[df.sequence.str.contains('') == False]
+
+print len(df)
+
+df.to_csv(sys.argv[2])
