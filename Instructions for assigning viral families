@@ -1,0 +1,22 @@
+1. viral_families.py
+	Arg1 - list of EVEs
+	Arg2 - outputs a list with species names only
+2. Add a header to the names list
+	sed -i 1i'species' *.csv
+3. count_names.py
+	Arg1 - list of EVE names only
+	Arg2 - outputs the number of times each name occurs
+4. compare_tax_and_names.py 
+	Arg1 - taxonomy database
+	Arg2 - list of EVE names only
+	Arg3 - outputs a list with a family assigned to each unique species
+5. Check the output of compare_tax_and_names.py. If a species name is not found in the database, then it is labeled a "unclassified". Verify that each unclassified species truly is unclassified. If the species is not unclassified, manually change the "unclassified" to the correct family.
+5. species_family.py
+	Arg1 - output of count_names.py
+	Arg2 - output of compare_tax_names.py
+	Arg3 - Merges Arg1 and Arg2
+6. count_families.py
+	Arg1 - output of species_family.py
+	Arg2 - gives the final distribution of families
+
+
